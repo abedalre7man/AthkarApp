@@ -1,0 +1,99 @@
+/* ==== خلفية الصفحة ==== */
+body {
+  margin: 0;
+  background: linear-gradient(to right, #1c1c1c, #222);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ==== العنوان ==== */
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #f3f3f3;
+  margin: 30px 0 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ==== الكروت ==== */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5%;
+  padding: 20px;
+}
+
+.card {
+  width: 18%;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #fff;
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  filter: brightness(0.97);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+.refresh-btn {
+  width: 42px;
+  height: 42px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px auto;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: #5b0ed7;
+  transform: rotate(180deg);
+}
+
+.card h1 {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.card-total {
+  font-size: 1rem;
+  color: #000000b2;
+  position: relative;
+  font-weight: 600;
+  margin-top: 8px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.card-total::after {
+  content: attr(data-reflect);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(-1);
+  opacity: 0.2;
+  font-size: 0.8rem;
+  color: #000;
+  pointer-events: none;
+}
