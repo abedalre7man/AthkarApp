@@ -39,8 +39,10 @@ body {
 }
 
 .card:hover {
+  background-color: red !important;
+  color: white;
   transform: scale(1.02);
-  filter: brightness(0.97);
+  filter: brightness(1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
