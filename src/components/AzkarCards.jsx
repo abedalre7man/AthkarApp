@@ -1,4 +1,3 @@
-// src/AzkarCards.jsx
 import React, { useEffect, useState } from 'react';
 import './AzkarCards.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,41 +7,38 @@ import { cardsData } from "../cardsData.js";
 function AzkarCards() {
   const [cards, setCards] = useState([]);
 
-useEffect(() => {
-  const updated = cardsData.map(card => ({
-    ...card,
-    currentCount: card.count 
-  }));
-  setCards(updated);
-}, []);
+  useEffect(() => {
+    const updated = cardsData.map(card => ({
+      ...card,
+      currentCount: card.count
+    }));
+    setCards(updated);
+  }, []);
 
-const handleCardClick = (id) => {
-  setCards(prevCards =>
-    prevCards.map(card =>
-      card.id === id && card.currentCount > 0
-        ? { ...card, currentCount: card.currentCount - 1 }
-        : card
-    )
-  );
-};
+  const handleCardClick = (id) => {
+    setCards(prevCards =>
+      prevCards.map(card =>
+        card.id === id && card.currentCount > 0
+          ? { ...card, currentCount: card.currentCount - 1 }
+          : card
+      )
+    );
+  };
 
-
-const handleReset = (id) => {
-  setCards(prevCards =>
-    prevCards.map(card =>
-      card.id === id ? { ...card, currentCount: card.count } : card
-    )
-  );
-};
-
+  const handleReset = (id) => {
+    setCards(prevCards =>
+      prevCards.map(card =>
+        card.id === id ? { ...card, currentCount: card.count } : card
+      )
+    );
+  };
 
   return (
     <div className="cards-container">
       {cards.map(card => (
         <div
-          className="card"
+          className={`card ${card.colorClass}`}
           key={card.id}
-          style={{ backgroundColor: card.backgroundColor }}
           onClick={() => handleCardClick(card.id)}
         >
           <h3 className="card-title">{card.title}</h3>
@@ -56,7 +52,7 @@ const handleReset = (id) => {
             <FontAwesomeIcon icon={faArrowsRotate} />
           </button>
           <h1>{card.currentCount}</h1>
-<p className="card-total">{card.count}</p>
+          <p className="card-total">{card.count}</p>
         </div>
       ))}
     </div>
